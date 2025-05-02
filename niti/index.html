@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NITI Frontier Tech Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #fff;
+        color: #222;
+        padding: 5%;
+      }
+      
+      .agenda-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10%;
+        padding-bottom: 0;
+        background: #f9fbff;
+        flex-wrap: wrap;
+      }
+      
+      .agenda-left {
+        max-width: 50%;
+      }
+      
+      .agenda-title {
+        font-size: 2rem;
+        color: #2e3192;
+        margin-bottom: 20px;
+      }
+      
+      .agenda-point {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        align-items: center;
+      }
+      
+      .focus {
+        width: 40px;
+        height: 40px;
+      }
+      .rocket{
+        width: 40px;
+        height: 40px;
+      }
+      
+      .agenda-right {
+        max-width: 40%;
+        text-align: center;
+      }
+      
+      .agenda-logo {
+        max-width: 100%;
+        height: auto;
+      }
+      
+      .discussion-section {
+        padding: 40px 60px;
+      }
+      
+      .discussion-title {
+        font-size: 2rem;
+        color: #2e3192;
+        margin-bottom: 30px;
+      }
+      
+      .discussion-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+      }
+
+      .discussion-card:hover{
+        transform: translateY(-5px);
+      }
+      
+      .discussion-card {
+        background-color: #f7faff;
+        border-left: 4px solid #2e3192;
+        padding: 20px;
+        border-radius: 8px;
+        width: 25%;
+        min-width: 260px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        overflow: hidden;
+        transition: transform 0.2s;
+      }
+      
+      .discussion-card h3 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      
+      .pdf-download {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #2e3192;
+        font-weight: bold;
+        transition: transform 0.2s;
+      }
+      .pdf-download:hover{
+        transform: translatey(-5px);
+        cursor: pointer;
+
+      }
+      
+      .pdf-download img {
+        width: 20px;
+        height: 20px;
+      }
+      .objectives-section {
+        padding: 40px;
+        text-align: center;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        color: #1f2a56;
+        margin-bottom: 30px;
+      }
+      
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .card {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 280px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.2s;
+      }
+      
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+      }
+      
+      .card-content {
+        padding: 20px;
+        text-align: left;
+      }
+      
+      .card-content h3 {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 10px;
+      }
+      
+      .card-content p {
+        font-size: 0.9rem;
+        color: #333;
+      }
+      .initiatives-section {
+        padding: 60px;
+        background: #f9fbff;
+        display: flex;
+        justify-content: center;
+      }
+      
+      .initiatives-container {
+        display: flex;
+        border: 1px solid #c8d6f0;
+        border-radius: 20px;
+        overflow: hidden;
+        background: white;
+        width: 100%;
+        max-width: 1200px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        padding: 5%;
+        gap: 5%;
+      }
+      
+      .initiatives-image img {
+        display: flex;
+        margin: auto;
+        width: 100%;
+        max-width: 450px;
+        height: 90%;
+        border-radius: 5%;
+      }
+      .initiatives-image{
+        display: flex;
+        border-radius: 5%;
+      }
+      
+      .initiatives-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 60%;
+      }
+      
+      .initiatives-content h2 {
+        color: #2e3192;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      
+      .initiatives-content h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      
+      .initiatives-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+      
+      .know-more {
+        background-color: white;
+        border: 1px solid #2e3192;
+        border-radius: 50px;
+        padding: 10px 20px;
+        color: #2e3192;
+        font-weight: bold;
+        cursor: pointer;
+        width: fit-content;
+      }
+      
+      .know-more span {
+        margin-left: 8px;
+      }
+      
+      .pagination {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+      }
+      
+      .arrow {
+        border: 1px solid #2e3192;
+        border-radius: 50%;
+        background: white;
+        color: #2e3192;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      
+      .page-number, .total-pages {
+        font-weight: 500;
+        font-size: 0.95rem;
+      }
+      
+      .line {
+        height: 2px;
+        background-color: #2e3192;
+        flex: 1;
+      }
+      .trends-section {
+        padding: 60px;
+        background-color: #fff;
+      }
+      
+      .trends-section h2 {
+        font-size: 2rem;
+        color: #2e3192;
+        margin-bottom: 40px;
+      }
+      
+      .trends-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .event{
+        display: inline-block;
+      }
+      .event_img{
+        width: 15px;
+        height: 25px;
+      }
+      .trend-card, .event-card {
+        border: 1px solid #e0eaf5;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      }
+      
+      .trend-card img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      
+      .trend-content, .event-card {
+        padding: 20px;
+      }
+      
+      .trend-content .meta,
+      .event-card .meta {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 8px;
+      }
+      
+      .trend-content h3,
+      .event-card h3 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      
+      .trend-content .description {
+        font-size: 0.92rem;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      
+      .arrow-button {
+        align-self: flex-end;
+        background: none;
+        border: 1px solid #2e3192;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        color: #2e3192;
+        cursor: pointer;
+      }
+      
+      .event-card {
+        background-color: #e6f2fc;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+      
+      .event-card img {
+        border-radius: 10px;
+        margin-top: 10px;
+        width: 45%;
+        height: auto;
+        object-fit: cover;
+      }
+      
+      .event-card .event-time,
+      .event-card .location {
+        font-size: 0.9rem;
+        margin: 2px 0;
+        color: #333;
+      }
+      .event_arrow{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #2e3192;
+        height: 200px;
+        color: white;
+        padding: 10px 20px;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+      
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+      }
+      
+      .toggle-button {
+        display: none;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: white;
+      }
+      
+      
+      
+</style>
+<body>
+  <nav class="navbar">
+    <div class="logo">Niti Aayog</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Agenda</a></li>
+      <li><a href="#">DissCuss Paper</a></li>
+      <li><a href="#">Key Objectives</a></li>
+      <li><a href="#">Initiatives</a></li>
+      <li><a href="#">Trend & Insights</a></li>
+    </ul>
+    <button class="toggle-button" onclick="toggleMenu()">☰</button>
+  </nav>
+  <section class="agenda-section">
+    <div class="agenda-left">
+      <h2 class="agenda-title">Agenda</h2>
+      <div class="agenda-point">
+        <img class="focus" src="focus.png" alt="Timer Icon">
+        <p>Enabling India’s Readiness to advance Frontier Tech Innovation and Use for Accelerated Economic and Societal Development towards Viksit Bharat.</p>
+      </div>
+      <div class="agenda-point">
+        <img class="rocket" src="rocket.png" alt="Rocket Icon">
+        <p>Championing India’s Human-Centric Approach worldwide by advancing the development and adoption of emerging technologies that benefit humanity and the environment.</p>
+      </div>
+    </div>
+    <div class="agenda-right">
+      <img src="niti logo.png" alt="NITI Frontier Tech Hub Logo" class="agenda-logo">
+    </div>
+  </section>
+
+  <section class="discussion-section">
+    <h2 class="discussion-title">Discussion Papers</h2>
+    <div class="discussion-cards">
+      <div class="discussion-card">
+        <h3>Beyond Planning: India's Urgent Need for a 10-Year R&D Vision, Action, and Accountability</h3>
+        <div class="pdf-download">
+          <img src="download.png" alt="PDF Icon">
+          <span>pdf</span>
+        </div>
+      </div>
+      <div class="discussion-card">
+        <h3>The State of AI - Understanding the Recent AI Shifts and Implications Debjani Ghosh, Distinguished Fellow, NITI Aayog</h3>
+        <div class="pdf-download">
+          <img src="download.png" alt="PDF Icon">
+          <span>pdf</span>
+        </div>
+      </div>
+      <div class="discussion-card">
+        <h3>Beyond Planning: India's Urgent Need for a 10-Year R&D Vision, Action, and Accountability</h3>
+        <div class="pdf-download">
+          <img src="download.png" alt="PDF Icon">
+          <span>pdf</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="objectives-section">
+    <h2 class="section-title">Key Objectives</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://img.freepik.com/premium-photo/man-walks-towards-arrowshaped-exit_103577-8951.jpg?w=826" alt="Challenge Image">
+        <div class="card-content">
+          <h3>Identify potential challenges and opportunities</h3>
+          <p>Produce comprehensive strategies and policy recommendations to shape India’s frontier tech readiness.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="image 2.jpg" alt="Human Centric Image">
+        <div class="card-content">
+          <h3>Demonstrate Human Centric Impact</h3>
+          <p>Showcase human centric use of frontier technologies in critical sectors such as health, agriculture, education etc.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="image pt.webp" alt="Partnerships Image">
+        <div class="card-content">
+          <h3>Scale through partnerships</h3>
+          <p>Collaborate with States and Government departments to catalyze R&D and scale deployments. Measure Impact on Economic Growth and Societal Development.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.figensoft.com/static/img/global-sms-img.jpg" alt="Global Adoption Image">
+        <div class="card-content">
+          <h3>Disseminate globally for wider adoption</h3>
+          <p>Engage in international dialogues and collaborations that drive advocacy and acceptance of the India Development Model.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="initiatives-section">
+    <div class="initiatives-container">
+      <div class="initiatives-image">
+        <img src="https://media.licdn.com/dms/image/v2/D5622AQFrya4GwpLkJQ/feedshare-shrink_1280/B56ZVmOsfeHQAk-/0/1741176883901?e=1749081600&v=beta&t=dSKX6LpSq1eyyBoO_0-ijHUEEdbzbAP_Fg4MSGC4DAE" alt="NITI Gurukul Session">
+      </div>
+      <div class="initiatives-content">
+        <h2>Initiatives</h2>
+        <h3>First NITI Frontier Tech Gurukul session on <strong>AI for Viksit Bharat!</strong></h3>
+        <p>
+          The first NITI Frontier Tech Gurukul session featured an insightful discussion between Yann LeCun and Senior officials of the Government of India on the future of AI and India’s role in shaping the future. In his keynote address, Yann LeCun, Chief AI Scientist at Meta, offering insights said, India’s strongest asset is its young talent that is hungry to contribute to the AI roadmap. The one area India needs to improve is creating much more compelling opportunities for these young people to pursue careers in Research and Development.
+        </p>
+        <button class="know-more">
+          Know More <span>&#8594;</span>
+        </button>
+        <div class="pagination">
+          <button class="arrow">&#8249;</button>
+          <span class="page-number">01</span>
+          <span class="line"></span>
+          <span class="total-pages">12</span>
+          <button class="arrow">&#8250;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="trends-section">
+    <h2>Featured Trends and Insights</h2>
+    <div class="trends-grid">
+      
+      <!-- Article Card 1 -->
+      <div class="trend-card">
+        <img src="ai.png" alt="Frontier Tech">
+        <div class="trend-content">
+          <p class="meta">Article | January 12, 2025 at 08:51 PM.</p>
+          <h3>We must embrace frontier technologies quickly</h3>
+          <p class="description">
+            India is at a tipping point. Our ambition to become a developed nation by 2047 calls for transformative, all-encompassing change. Incremental progress will no longer suffice...
+          </p>
+          <button class="arrow-button">&#8594;</button>
+        </div>
+      </div>
+  
+      <!-- Article Card 2 -->
+      <div class="trend-card">
+        <img src="nobody.png" alt="Quantum Tech Launch">
+        <div class="trend-content">
+          <p class="meta">Article | January 12, 2025 at 08:51 PM.</p>
+          <h3>World Quantum Day: Telangana set to launch Quantum Frontier Tech Charter</h3>
+          <p class="description">
+            Telangana government has joined forces with NITI Frontier Tech Hub to launch a strategic initiative accelerating quantum tech innovation. The initiative celebrates 100 years of quantum science...
+          </p>
+          <button class="arrow-button">&#8594;</button>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-card">
+          <p class="meta">Event</p>
+          <p class="event-time">📅 3rd April 2025  ⏰ 10 am - 2 pm</p>
+          <p class="location">📍 DAIC Conference Hall 2, New Delhi</p>
+          <h3>AI Workshop</h3>
+          <div class="event_arrow">
+            <img class="event_img" src="onebody.jpg" alt="AI Workshop">
+            <button class="arrow-button">&#8594;</button>
+          </div>
+        </div>
+    
+        <!-- Event Card 2 -->
+        <div class="event-card">
+          <p class="meta">Event</p>
+          <p class="event-time">📅 3rd April 2025  ⏰ 10 am - 2 pm</p>
+          <p class="location">📍 DAIC Conference Hall 2, New Delhi</p>
+          <h3>Quarterly Insights!</h3>
+          <div class="event_arrow">
+            <img src="twobody.jpg" alt="Quarterly Insights">
+            <button class="arrow-button">&#8594;</button>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+</body>
+</html>
